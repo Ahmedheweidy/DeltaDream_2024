@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض بيانات الشاليهات</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container" id="login-screen">
+        <h1>مرحباً بك</h1>
+        <input type="number" id="phone" placeholder="أدخل رقم الموبايل الخاص بك...">
+        <button onclick="login()">الدخول</button>
+    </div>
+
+    <div class="container hidden" id="data-screen">
+        <h1>عرض بيانات الشاليهات</h1>
+
+        <!-- حقل البحث للإدمن -->
+        <input type="text" id="unit-filter" placeholder="ابحث برقم الوحدة..." oninput="filterUnits()" class="hidden">
+
+        <h2>بيانات 2024</h2>
+        <table id="data-table-2024">
+            <thead>
+                <tr>
+                    <th>مسلسل</th>
+                    <th>نوع العقد</th>
+                    <th>المشروع</th>
+                    <th>عدد الغرف</th>
+                    <th>رقم الوحدة</th>
+                    <th>المياة</th>
+                    <th>الكهرباء</th>
+                    <th>الإدارة</th>
+                    <th>تصاريح</th>
+                    <th>مصاريف عمومية</th>
+                    <th>الصافي للمالك</th>
+                    <th>مبيعات الشاليه</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <h2>بيانات 2023</h2>
+        <table id="data-table-2023">
+            <thead>
+                <tr>
+                    <th>مسلسل</th>
+                    <th>نوع العقد</th>
+                    <th>المشروع</th>
+                    <th>عدد الغرف</th>
+                    <th>رقم الوحدة</th>
+                    <th>المياة</th>
+                    <th>الكهرباء</th>
+                    <th>الإدارة</th>
+                    <th>تصاريح</th>
+                    <th>مصاريف عمومية</th>
+                    <th>الصافي للمالك</th>
+                    <th>مبيعات الشاليه</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div id="chart-container">
+            <canvas id="chart"></canvas>
+        </div>
+
+        <button onclick="logout()">تسجيل الخروج</button>
+    </div>
+
+    <script src="script.js" defer></script>
+
+</body>
+</html>
