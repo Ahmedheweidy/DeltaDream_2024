@@ -10,66 +10,49 @@
 <body>
     <div class="container" id="login-screen">
         <h1>مرحباً بك</h1>
-        <input type="number" id="phone" placeholder="أدخل رقم الموبايل الخاص بك...">
-        <button onclick="login()">الدخول</button>
+        <input type="number" id="phone" placeholder="أدخل رقم الموبايل الخاص بك..." class="input-field">
+        <button class="btn" onclick="login()">الدخول</button>
     </div>
 
     <div class="container hidden" id="data-screen">
-        <h1>عرض بيانات الشاليهات</h1>
+        <h1>مقارنة بيانات الشاليهات</h1>
 
-        <!-- حقل البحث للإدمن -->
-        <input type="text" id="unit-filter" placeholder="ابحث برقم الوحدة..." oninput="filterUnits()" class="hidden">
+        <div class="filter-container hidden" id="filter-container">
+            <input type="text" id="unit-filter" placeholder="ابحث برقم الوحدة..." oninput="filterUnits()" class="input-field">
+        </div>
 
-        <h2>بيانات 2024</h2>
-        <table id="data-table-2024">
+        <h2>مقارنة الوحدات</h2>
+        <table id="comparison-table">
             <thead>
                 <tr>
-                    <th>مسلسل</th>
-                    <th>نوع العقد</th>
-                    <th>المشروع</th>
-                    <th>عدد الغرف</th>
                     <th>رقم الوحدة</th>
-                    <th>المياة</th>
-                    <th>الكهرباء</th>
-                    <th>الإدارة</th>
-                    <th>تصاريح</th>
-                    <th>مصاريف عمومية</th>
-                    <th>الصافي للمالك</th>
-                    <th>مبيعات الشاليه</th>
+                    <th>نوع العقد (2024)</th>
+                    <th>نوع العقد (2023)</th>
+                    <th>المشروع (2024)</th>
+                    <th>المشروع (2023)</th>
+                    <th>عدد الغرف (2024)</th>
+                    <th>عدد الغرف (2023)</th>
+                    <th>المياه (2024)</th>
+                    <th>المياه (2023)</th>
+                    <th>الكهرباء (2024)</th>
+                    <th>الكهرباء (2023)</th>
+                    <th>الإدارة (2024)</th>
+                    <th>الإدارة (2023)</th>
+                    <th>الصافي للمالك (2024)</th>
+                    <th>الصافي للمالك (2023)</th>
                 </tr>
             </thead>
             <tbody></tbody>
         </table>
-
-        <h2>بيانات 2023</h2>
-        <table id="data-table-2023">
-            <thead>
-                <tr>
-                    <th>مسلسل</th>
-                    <th>نوع العقد</th>
-                    <th>المشروع</th>
-                    <th>عدد الغرف</th>
-                    <th>رقم الوحدة</th>
-                    <th>المياة</th>
-                    <th>الكهرباء</th>
-                    <th>الإدارة</th>
-                    <th>تصاريح</th>
-                    <th>مصاريف عمومية</th>
-                    <th>الصافي للمالك</th>
-                    <th>مبيعات الشاليه</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        
 
         <div id="chart-container">
             <canvas id="chart"></canvas>
         </div>
 
-        <button onclick="logout()">تسجيل الخروج</button>
+        <button class="btn btn-logout" onclick="logout()">تسجيل الخروج</button>
     </div>
 
     <script src="script.js" defer></script>
-
 </body>
 </html>
