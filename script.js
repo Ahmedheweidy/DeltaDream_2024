@@ -27,7 +27,7 @@ function renderComparisonTable(data2024, data2023) {
     comparisonTable.innerHTML = "";
 
     data2024.forEach(row2024 => {
-        const unitNumber = row2024["Column5"]; // رقم الوحدة
+        const unitNumber = row2024["Column5"];
         const row2023 = data2023.find(row => row["رقم الوحدة"] === unitNumber);
 
         const tr = document.createElement("tr");
@@ -51,7 +51,6 @@ function renderComparisonTable(data2024, data2023) {
         comparisonTable.appendChild(tr);
     });
 }
-
 
 function renderChart(data2024, data2023) {
     const labels = data2024.map(row => row["Column5"]);
