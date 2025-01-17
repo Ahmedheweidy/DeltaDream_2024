@@ -96,6 +96,7 @@ function renderChart(data2024, data2023) {
     });
 }
 
+
 async function login() {
     await fetchData();
     const phone = document.getElementById("phone").value.trim();
