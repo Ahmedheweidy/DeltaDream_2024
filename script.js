@@ -1,13 +1,14 @@
 let data2024 = [];
 let data2023 = [];
-const adminPhones = ["01011111111", "01022222222", "01033333333", "01044444444", "01055555555"];
+const adminPhones = ["01011111111", "01022222222", "01033333333"];
 const loginScreen = document.getElementById("login-screen");
 const dataScreen = document.getElementById("data-screen");
-const comparisonTable = document.getElementById("comparison-table").querySelector("tbody");
+const comparisonTable = document.querySelector("#comparison-table tbody");
 const chartCanvas = document.getElementById("chart");
 const unitFilter = document.getElementById("unit-filter");
 let chartInstance;
 
+/** تحميل البيانات من الملفات JSON */
 async function fetchData() {
     try {
         const response2024 = await fetch('data2024.json');
@@ -23,6 +24,7 @@ async function fetchData() {
     }
 }
 
+/** عرض البيانات في جدول المقارنة */
 function renderComparisonTable(data2024, data2023) {
     comparisonTable.innerHTML = "";
 
@@ -52,6 +54,7 @@ function renderComparisonTable(data2024, data2023) {
     });
 }
 
+/** عرض الرسم البياني */
 function renderChart(data2024, data2023) {
     const labels = data2024.map(row => row["Column5"]);
     const data2024Values = data2024.map(row => row["Column12"] || 0);
@@ -96,7 +99,21 @@ function renderChart(data2024, data2023) {
     });
 }
 
+/** تصفية الوحدات بناءً على قيمة البحث */
+function filterUnits() {
+    const filterValue = unitFilter.value.trim();
+    if (filterValue === "") {
+        renderComparisonTable(data2024, data2023);
+    } else {
+        const filtered2024 = data2024.filter(row => String(row["Column5"]).includes(filterValue));
+        const filtered2023 = data2023.filter(row =>
+            filtered2024.some(filteredRow => filteredRow["Column5"] === row["رقم الوحدة"])
+        );
+        renderComparisonTable(filtered2024, filtered2023);
+    }
+}
 
+/** تسجيل الدخول */
 async function login() {
     await fetchData();
     const phone = document.getElementById("phone").value.trim();
@@ -104,7 +121,7 @@ async function login() {
     if (adminPhones.includes(phone)) {
         loginScreen.classList.add("hidden");
         dataScreen.classList.remove("hidden");
-        unitFilter.classList.remove("hidden");
+        unitFilter.parentElement.classList.remove("hidden"); // عرض الفلتر للإدمن
         renderComparisonTable(data2024, data2023);
         renderChart(data2024, data2023);
     } else {
@@ -121,14 +138,17 @@ async function login() {
     }
 }
 
+/** تصفية البيانات بناءً على وحدات المالك */
 function filterUnitsBy2024(ownerData2024) {
     const ownerUnits = ownerData2024.map(row => String(row["Column5"]));
     return data2023.filter(row => ownerUnits.includes(String(row["رقم الوحدة"])));
 }
 
+/** تسجيل الخروج */
 function logout() {
     loginScreen.classList.remove("hidden");
     dataScreen.classList.add("hidden");
+    unitFilter.parentElement.classList.add("hidden");
     document.getElementById("phone").value = "";
 }
 
