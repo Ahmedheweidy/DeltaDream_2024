@@ -1,10 +1,14 @@
 /* إعدادات عامة */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f9;
-    direction: rtl;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f9;
+<<<<<<< HEAD
+ 
+    text-align: center;
+  
+  
 }
 
 /* الحاوية الأساسية */
@@ -14,6 +18,17 @@ body {
   padding: 20px;
 }
 
+=======
+}
+
+/* الحاوية الأساسية */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+>>>>>>> 0a574568ff9a8a8566687e8f1617cdcb6ec96d72
 /* عناصر الإدخال والأزرار */
 .input-field {
   width: 100%;
@@ -87,3 +102,21 @@ tr:hover {
   background-color: #f1f1f1;
 }
 
+/* الرسم البياني */
+#chart-container {
+  margin-top: 20px;
+}
+
+canvas {
+  max-width: 100%;
+}
+<<<<<<< HEAD
+
+.Deltadream-img {
+  display: inline-block;
+  padding-top: 50px;
+  width: 650px;
+  height: 650px;
+}
+=======
+>>>>>>> 0a574568ff9a8a8566687e8f1617cdcb6ec96d72
