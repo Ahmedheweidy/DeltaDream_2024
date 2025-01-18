@@ -3,51 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض بيانات الشاليهات</title>
+    <title>مقارنة بيانات الشاليهات</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container" id="login-screen">
         <h1>مرحباً بك</h1>
         <input type="number" id="phone" placeholder="أدخل رقم الموبايل الخاص بك..." class="input-field">
-        <button class="btn btn btn-primary" onclick="login()">الدخول</button>
+        <button class="btn" onclick="login()">الدخول</button>
     </div>
-
 
     <div class="container hidden" id="data-screen">
         <h1>مقارنة بيانات الشاليهات</h1>
 
-        <div class="filter-container hidden" id="filter-container">
+        <!-- حقل البحث للإدمن -->
+        <div class="filter-container hidden">
             <input type="text" id="unit-filter" placeholder="ابحث برقم الوحدة..." oninput="filterUnits()" class="input-field">
         </div>
 
-        <h2>مقارنة الوحدات</h2>
-        <table class="table" id="comparison-table">
-            <thead>
-                <tr>
-                    <th>رقم الوحدة</th>
-                    <th>نوع العقد (2024)</th>
-                    <th>نوع العقد (2023)</th>
-                    <th>المشروع (2024)</th>
-                    <th>المشروع (2023)</th>
-                    <th>عدد الغرف (2024)</th>
-                    <th>عدد الغرف (2023)</th>
-                    <th>المياه (2024)</th>
-                    <th>المياه (2023)</th>
-                    <th>الكهرباء (2024)</th>
-                    <th>الكهرباء (2023)</th>
-                    <th>الإدارة (2024)</th>
-                    <th>الإدارة (2023)</th>
-                    <th>الصافي للمالك (2024)</th>
-                    <th>الصافي للمالك (2023)</th>
-                </tr>
-            </thead>
-            <tbody></tbody>
-        </table>
+        <!-- جدول المقارنة داخل حاوية قابلة للتمرير -->
+        <h2>بيانات الوحدات</h2>
+        <div class="table-wrapper">
+            <table id="comparison-table">
+                <thead>
+                    <tr>
+                        <th>رقم الوحدة</th>
+                        <th>نوع العقد (2024)</th>
+                        <th>نوع العقد (2023)</th>
+                        <th>المشروع (2024)</th>
+                        <th>المشروع (2023)</th>
+                        <th>عدد الغرف (2024)</th>
+                        <th>عدد الغرف (2023)</th>
+                        <th>المياه (2024)</th>
+                        <th>المياه (2023)</th>
+                        <th>الكهرباء (2024)</th>
+                        <th>الكهرباء (2023)</th>
+                        <th>الإدارة (2024)</th>
+                        <th>الإدارة (2023)</th>
+                        <th>الصافي للمالك (2024)</th>
+                        <th>الصافي للمالك (2023)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- يتم إنشاء الصفوف ديناميكيًا باستخدام JavaScript -->
+                </tbody>
+            </table>
+        </div>
 
-        <div class=".offcanvas" id="chart-container">
+        <!-- الرسم البياني -->
+        <div id="chart-container">
             <canvas id="chart"></canvas>
         </div>
 
