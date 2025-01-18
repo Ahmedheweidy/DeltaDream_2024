@@ -4,7 +4,10 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f4f4f9;
+ 
     text-align: center;
+  
+  
 }
 
 /* الحاوية الأساسية */
@@ -14,7 +17,6 @@ body {
   padding: 20px;
 }
 
-}
 
 /* الحاوية الأساسية */
 .container {
@@ -103,7 +105,8 @@ tr:hover {
 
 canvas {
   max-width: 100%;
-} 
+}
+
 .Deltadream-img {
   display: inline-block;
   padding-top: 50px;
